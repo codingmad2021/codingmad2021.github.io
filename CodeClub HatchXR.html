@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Club September 2024</title>
+    <link rel="icon" type="image/x-icon" href="Logo.svg">
+
+    <style>
+        #myIframe {
+            width: 100%;
+            height: 700px; /* Initial height */
+            border: none;
+        }
+        .large-text {
+            font-size: 20px; /* Adjust this value as needed */
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color:cyan;
+            text-decoration:overline;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="background-color: azure;">
+    <script>
+        const textBlocks = ["Have fun playing your new game",
+	 "Create a new project using the button at the top",
+	 "Choose one of the built-in landscapes",
+	"Delete all the existing blocks of code by dragging them to the trash can",
+	"Open the design tab (click at the top) and press the plus icon in the bottom right",
+	"Find an object for your player to catch. When it hits this, your score will increase!",
+	"When the object has been inserted, you will see three arrows labled X Y and Z. X moves left and right Y moves up and down Z moves forward and backwards",
+	"Move your object to the location that you want it to start at, using the arrows",
+	"Press the plus button again to add an enemy, that will decrease your score when you hit it!",
+	"Use the X,Y,Z axis to move it closer to the first object",
+	"Press the code tab (click at the top) and select variables",
+    "Click on create variable, and name it score",
+	"Under the events tab pull out a when green flag clicked;",
+	"Go into the variables tab and add a block to set your score.",
+	"Go to the math tab, and drag in the number 0",
+	"Scroll down in the list on the left and select the name of your main character. This is the one that came with your scene.",
+    "Scroll down again to select when (character) collides with",
+	"Now go the the section for your object (The one that increases the score). Drag out the top block into the block you added above",
+	"Under vairables pull out a change score by 1 block.",
+	"Create two more vairables,name them x and the other y",
+	"Go to the variables tab, and pull out another set varible. Change the variable being set to x",
+	"Under the math section, pull out a random number block and put it in the set x to block",
+	"Set the minimun to -20 and the maximum 20",
+	"Repeat this for y but set the minimum to 1",
+	"Go to the section for your character to catch, and drag in a change (character) x by",
+	"Add the variable x into the block of code.",
+	"Now add the same block again, but press the arrow and change x to y",
+    "In the input, add the variable y",
+	"Select your enemy character in the menu, and add a when (character) collides with",
+    "Now go to your main character, and drag your character's name into the box",
+	"Now go to the logic tab, and add the block with an equals sign",
+    "Change the equals to <",
+	"Set the left value to your variable score then pull out a number block from math and set the number to 0. This means that if the score is less than 0 so -1 or lower the if statement will cary out whatever is inside of it.",
+	"Now go into each character's section of the list, and draw in a set (character) visible true.",
+    "Change true to false, to give the effect of game over",
+	"If you want you can add a print out of the score. Can you work out how to do this? Hint: you will need to add some text in the design pannel then use item specific controls to set the text using the set text to block",
+	"To save your project, give it a name then press publish, select quick publish and copy the link",
+	"Create a HatchXR account in a NEW TAB.",
+    "Now paste the link to your project in the new tab",
+    "Press open in editor then remix",]
+        let currentIndex = 0;
+
+        function toggleText() {
+            const displayElement = document.getElementById("displayText");
+            currentIndex = (currentIndex + 1) % textBlocks.length;
+            displayElement.textContent = textBlocks[currentIndex];
+        }
+
+        function adjustTextSize(factor) {
+            const displayElement = document.getElementById("displayText");
+            const currentSize = parseInt(window.getComputedStyle(displayElement).fontSize);
+            displayElement.style.fontSize = `${currentSize + factor}px`;
+        }
+    </script>
+    <p id="displayText" class="large-text">Today we are making a 3D coin collector game using HatchXR</p>
+    <button onclick="toggleText()">Next</button>
+    <iframe id="myIframe" src="https://kids.hatchxr.com"></iframe>
+    <button onclick="adjustSize(2)">Make Bigger</button>
+    <button onclick="adjustSize(-2)">Make Smaller</button>
+
+    <script>
+        const iframe = document.getElementById('myIframe');
+        let currentHeight = 700; // Initial height
+
+        function adjustSize(factor) {
+            // Adjust height by 5% (you can change this value)
+            const newHeight = currentHeight + (currentHeight * 0.05 * factor);
+            iframe.style.height = `${newHeight}px`;
+            currentHeight = newHeight;
+        }
+    </script>
+</body>
+</html>
